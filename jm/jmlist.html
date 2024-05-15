@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="一个默默无闻的主页">
+    <meta name="keywords" content="hfr1107,个人主页">
+    <meta name="author" content="hfr1107">
+    <meta name="theme-color" content="#424242">
+    <title>hfr1107の主页</title>
+    <link rel="icon" href="images/icon/favicon.ico">
+    <link rel="stylesheet" href="css/index-49061b3d.css">
+    <link rel="stylesheet" href="css/el-input-f8de3737.css">
+    <link rel="stylesheet" href="css/el-button-01ce30a9.css">
+    <link rel="stylesheet" href="css/el-tag-856368e3.css">
+    <link rel="stylesheet" href="css/el-table-column-be1751ac.css">
+    <link rel="stylesheet" href="css/el-message-192a9c59.css">
+    <link rel="stylesheet" href="css/index-a55d02fc.css">
+<style>
+  /* 设置消息容器的样式 */
+  #message-container {
+    position: fixed; /* 固定位置 */
+    top: 0; /* 位于顶部 */
+    left: 0;
+    right: 0;
+    padding: 0px;
+    /*background-color: rgba(0, 0, 0, 0.5);  半透明黑色背景 */
+    color: red; /* 白色文字 */
+    text-align: center; /* 居中文本 */
+    z-index: 9999; /* 确保消息显示在其他内容之上 */
+    transition: opacity 2s; /* 设置透明度过渡效果，持续2秒 */
+  }
+
+  /* 初始隐藏消息 */
+  #message-container.hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+</style>
+    <script src="https://unpkg.com/vue@2.6.14/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app" data-v-app=""><div id="message-container" class="hidden">复制成功！</div>
+      <div>
+        <div data-v-1ead9c03="">
+          <main data-v-1ead9c03="" class="el-main">
+            <div data-v-1ead9c03="" class="level">
+              <h3 data-v-1ead9c03="">
+                <span data-v-1ead9c03="">单线路地址</span>
+              </h3>
+              <div data-v-1ead9c03="" class="el-table--fit el-table--enable-row-hover el-table--enable-row-transition el-table el-table--layout-fixed is-scrolling-none" data-prefix="el" style="width: 100%;">
+                <div class="el-table__inner-wrapper">
+                  <div class="hidden-columns">
+                    <div data-v-1ead9c03=""></div>
+                    <div data-v-1ead9c03=""></div>
+                    <div data-v-1ead9c03=""></div>
+                  </div>
+                  <div class="el-table__header-wrapper">
+                    <table class="el-table__header" border="0" cellpadding="0" cellspacing="0" style="width: 1548px;">
+                      <colgroup>
+                        <col name="el-table_1_column_1" width="208">
+                        <col name="el-table_1_column_2" width="1100">
+                        <col name="el-table_1_column_3" width="240">
+                      </colgroup>
+                      <thead class="">
+                        <tr class="">
+                          <th class="el-table_1_column_1 column-width is-leaf el-table__cell" colspan="1" rowspan="1">
+                            <div class="cell">名称
+                              <!---->
+                              <!---->
+                            </div>
+                          </th>
+                          <th class="el-table_1_column_2 is-leaf el-table__cell" colspan="1" rowspan="1">
+                            <div class="cell">URL
+                              <!---->
+                              <!---->
+                            </div>
+                          </th>
+                          <th class="el-table_1_column_3 is-leaf el-table__cell" colspan="1" rowspan="1">
+                            <div class="cell">操作
+                              <!---->
+                              <!---->
+                            </div>
+                          </th>
+                        </tr>
+                      </thead>
+                    </table>
+                  </div>
+                  <div class="el-table__body-wrapper">
+                    <div class="el-scrollbar">
+                      <div class="el-scrollbar__wrap el-scrollbar__wrap--hidden-default">
+                        <div class="el-scrollbar__view" style="display: inline-block; vertical-align: middle;">
+                          <table class="el-table__body" cellspacing="0" cellpadding="0" border="0" style="table-layout: fixed; width: 1548px;">
+                            <colgroup>
+                              <col name="el-table_1_column_1" width="208">
+                              <col name="el-table_1_column_2" width="1100">
+                              <col name="el-table_1_column_3" width="240">
+                            </colgroup>
+                            <tr v-for="(item, index) in menuData" :key="index">
+                              <td class="el-table_1_column_1 el-table__cell" rowspan="1" colspan="1">
+                                <div class="cell">{{ item.name }}</div>
+                              </td>
+                              <td class="el-table_1_column_2 el-table__cell" rowspan="1" colspan="1">
+                                <div class="cell">
+                                  <div class="el-input">
+                                    <div class="el-input__wrapper" tabindex="-1">
+                                      <input class="el-input__inner" type="text" :value="item.url" >
+                                    </div>
+                                  </div>
+                                </div>
+                              </td>
+                              <td class="el-table_1_column_3 el-table__cell" rowspan="1" colspan="1">
+                                <div class="cell">
+                                  <button data-v-1ead9c03="" aria-disabled="false" type="button" class="el-button el-button--primary" @click="copyValue(item.url)">
+                                    <span class="">复制</span>
+                                  </button>
+                                  <button data-v-1ead9c03="" aria-disabled="false" type="button" class="el-button el-button--warning" @click="redirectToProxy(item.url)">
+                                    <span class="">解析</span>
+                                  </button>
+                                  <button data-v-1ead9c03="" aria-disabled="false" type="button" class="el-button el-button--success" @click="redirectToUrl(item.url)">
+                                    <span class="">跳转</span>
+                                  </button>
+                                </div>
+                              </td>
+                            </tr>
+                          </table>
+                        </div>
+
+                      </div>
+                    </div>
+                    <div class="el-scrollbar__bar is-horizontal" style="display: none;">
+                      <div class="el-scrollbar__thumb" style="transform: translateX(0%);"></div>
+                    </div>
+                    <div class="el-scrollbar__bar is-vertical" style="display: none;">
+                      <div class="el-scrollbar__thumb" style="transform: translateY(0%);"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="el-table__column-resize-proxy" style="display: none;"></div>
+            </div>
+        </div>
+        </main>
+      </div>
+    </div>
+    </div>
+<script>
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuData: null // 初始化为null，稍后在fetchMenuData中赋值
+  },
+  methods: {
+    copyValue(value) {
+      // 实现复制功能
+      navigator.clipboard.writeText(value).then(() => {
+// 获取消息容器元素
+  const messageContainer = document.getElementById("message-container");
+
+  // 显示消息
+  messageContainer.classList.remove("hidden");
+
+  // 延迟2秒后隐藏消息
+  setTimeout(() => {
+    messageContainer.classList.add("hidden");
+  }, 2000);
+      }).catch(err => {
+        alert('复制失败：', err);
+      });
+    },
+    redirectToProxy(value) {
+      // 假设代理地址是固定的
+      var proxyUrl = './api/box/jm.php?jm=';
+      value = proxyUrl + value;
+	  window.open(value, '_blank');
+    },
+    redirectToUrl(value) {
+      // 直接跳转到给定URL
+	  window.open(value, '_blank');
+    },
+    fetchMenuData() {
+      // 假设你的远程JSON文件URL是 'https://example.com/menuData.json'
+      fetch('https://api.lige.chat/getJson')
+        .then(response => response.json()) // 将响应解析为JSON
+        .then(data => {
+          this.menuData = data; // 将获取到的数据赋值给menuData
+        })
+        .catch(error => {
+          console.error('Error fetching menu data:', error);
+          this.menuData = []; // 如果出错，将menuData设置为空数组
+        });
+    }
+  },
+  created() {
+    // 在组件创建时调用fetchMenuData方法
+    this.fetchMenuData();
+  }
+});
+</script>
+
+
+</body>
+</html>

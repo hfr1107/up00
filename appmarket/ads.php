@@ -1,0 +1,10 @@
+{
+"id":"1",
+"wenads":"路尧定制应用仓库，仅供家庭内部使用，切勿外传！",
+"imads1":"https://d.kstore.space/download/3403/up/appmarket/app_icon.png",
+"imads2":"https://d.kstore.space/download/3403/up/appmarket/app_bg.png",
+"imads3":"切勿外传",
+"imads4":"",
+"imads5":"",
+"viads":"路尧定制"
+}
